@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <html>
   <head>
+    <meta charset="utf-8" /> 
     <title>SRFI 137: Minimal Unique Types</title>
     <link rel="stylesheet" href="http://srfi.schemers.org/srfi.css" type="text/css" />
   </head>
@@ -55,7 +56,7 @@ Nieper-Wißkirchen is the author of the sample implementation.</p>
 
 <h3 id="Make-type">Make-type</h3>
 <p>
-<tt>(make-type </tt> <em>type-payload</em><tt>)</tt> ???
+<tt>(make-type </tt> <em>type-payload</em><tt>)</tt> &#x2192;
 <em>type-accessor constructor predicate accessor make-subtype</em>
 </p>
 <p>
@@ -85,13 +86,13 @@ it binds.  "Reia" is an acronym for "remarkably 'evil' in appearance",
 and has no particular significance.  Fnord!
 </p>
 <p>
-<tt>(reia-metadata)</tt> ??? <em>object</em>
+<tt>(reia-metadata)</tt> &#x2192; <em>object</em>
 </p>
 <p>
 Returns the symbol <tt>reia</tt>. 
 </p>
 <p>
-<tt>(make-reia </tt><em>instance-payload</em><tt>)</tt>??? <em>reia</em>
+<tt>(make-reia </tt><em>instance-payload</em><tt>)</tt>&#x2192; <em>reia</em>
 </p>
 <p>
 Returns a newly allocated instance associated with
@@ -104,7 +105,7 @@ from any existing Scheme type, including types created by other calls
 to <tt>make-type</tt>.
 </p>
 <p>
-<tt>(reia? </tt><em>object</em><tt>)</tt>??? <em>boolean</em>
+<tt>(reia? </tt><em>object</em><tt>)</tt>&#x2192; <em>boolean</em>
 </p>
 <p>
 Returns <tt>#t</tt>  iff <em>object</em> was returned by a call to
@@ -112,14 +113,14 @@ Returns <tt>#t</tt>  iff <em>object</em> was returned by a call to
 indirect subtype of the <tt>reia</tt> type.
 </p>
 <p>
-<tt>(reia-ref </tt><em>reia</em><tt>)</tt>??? <em>object</em>
+<tt>(reia-ref </tt><em>reia</em><tt>)</tt>&#x2192; <em>object</em>
 </p>
 <p>
 Returns the instance payload of <em>reia</em>.  It is an error if
 <em>reia</em> does not satisfy <tt>reia?</tt>.
 </p>
 <p>
-<tt>(make-reia-subtype </tt><em>type-payload</em><tt>)</tt>??? <em>type-accessor constructor predicate accessor make-subtype</em>
+<tt>(make-reia-subtype </tt><em>type-payload</em><tt>)</tt>&#x2192; <em>type-accessor constructor predicate accessor make-subtype</em>
 </p>
 <p>
 Returns five new procedures with the same semantics as <tt>make-type</tt>,
