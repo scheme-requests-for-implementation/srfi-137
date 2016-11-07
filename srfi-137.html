@@ -26,7 +26,8 @@ John Cowan, Marc Nieper-Wißkirchen
   <li>Draft #2 published: 2016/10/4</li>
   <li>Finalized: 2016/10/4</li>
   <li>Revised to fix errata:
-    <ul><li>2016/10/5 (Fixed text under <tt>make-reia-subtype</tt>.)</li></ul></li>
+    <ul><li>2016/10/5 (Fixed text under <tt>make-reia-subtype</tt>.)</li></ul>
+    <ul><li>2016/11/7 (Fixed text under <tt>make-reia-subtype</tt> again.)</li></ul></li>
 </ul>
 
 <h1>Abstract</h1>
@@ -129,8 +130,7 @@ Returns the instance payload of <em>reia</em>.  It is an error if
 <p>
 Returns five new procedures with the same semantics as <tt>make-type</tt>,
 such that the objects returned by <em>constructor</em> satisfy <tt>reia?</tt>
-and the payload of objects returned by <tt>make-reia</tt> can be accessed
-using <em>accessor</em>.
+and their payload can be accessed using <tt>reia-ref</i>.
 </p>
 
 <h1>Implementation</h1>
