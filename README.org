@@ -4,6 +4,8 @@
 
 
 
+keywords: [[https://srfi.schemers.org/?keywords=data-structure][Data Structure]]
+
 This repository hosts [[https://srfi.schemers.org/srfi-137/][SRFI 137]]: Minimal Unique Types, a [[https://srfi.schemers.org/][Scheme Request for Implementation]].
 
 This SRFI is in /final/ status.
