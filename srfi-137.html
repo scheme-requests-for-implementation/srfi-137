@@ -1,11 +1,11 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" /> 
-    <title>SRFI 137: Minimal Unique Types</title>
     <meta charset="utf-8" />
+    <title>SRFI 137: Minimal Unique Types</title>
+    <link href="/favicon.png" rel="icon" sizes="192x192" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/srfi.css" type="text/css" />
+    <link rel="stylesheet" href="https://srfi.schemers.org/srfi.css" type="text/css" />
   </head>
 
   <body>
@@ -28,8 +28,8 @@ John Cowan, Marc Nieper-Wißkirchen
   <li>Draft #2 published: 2016-10-04</li>
   <li>Finalized: 2016-10-04</li>
   <li>Revised to fix errata:
-    <ul><li>2016-10-05 (Fixed text under <tt>make-reia-subtype</tt>.)</li></ul>
-    <ul><li>2016-11-07 (Fixed text under <tt>make-reia-subtype</tt> again.)</li></ul></li>
+    <ul><li>2016-10-05 (Fixed text under <code>make-reia-subtype</code>.)</li></ul>
+    <ul><li>2016-11-07 (Fixed text under <code>make-reia-subtype</code> again.)</li></ul></li>
 </ul>
 
 <h1>Abstract</h1>
@@ -63,20 +63,20 @@ Nieper-Wißkirchen is the author of the sample implementation.</p>
 
 <h3 id="Make-type">Make-type</h3>
 <p>
-<tt>(make-type </tt> <em>type-payload</em><tt>)</tt> &#x2192;
+<code>(make-type </code> <em>type-payload</em><code>)</code> &#x2192;
 <em>type-accessor constructor predicate accessor make-subtype</em>
 </p>
 <p>
-Calling <tt>make-type</tt> on <em>type-payload</em>, which can be
+Calling <code>make-type</code> on <em>type-payload</em>, which can be
 any Scheme object, returns five values, all of which are procedures.
-They are distinct (in the sense of <tt>eqv?</tt>) from each other and
-from any other procedures returned by other calls to <tt>make-type</tt>.
+They are distinct (in the sense of <code>eqv?</code>) from each other and
+from any other procedures returned by other calls to <code>make-type</code>.
 In brief, the five functions:
 </p>
 <ul><li>return <em>type-payload</em>
 </li></ul><ul><li>return newly allocated objects of a disjoint type known as
 <em>instances</em>, each associated with an <em>instance payload</em>
-</li></ul><ul><li>return <tt>#t</tt> iff an object is an instance of this type
+</li></ul><ul><li>return <code>#t</code> iff an object is an instance of this type
 </li></ul><ul><li>return the instance payload
 </li></ul><ul><li>return five more procedures associated with a subtype of this type
 </li></ul><p>
@@ -93,13 +93,13 @@ it binds.  "Reia" is an acronym for "remarkably 'evil' in appearance",
 and has no particular significance.  Fnord!
 </p>
 <p>
-<tt>(reia-metadata)</tt> &#x2192; <em>object</em>
+<code>(reia-metadata)</code> &#x2192; <em>object</em>
 </p>
 <p>
-Returns the symbol <tt>reia</tt>. 
+Returns the symbol <code>reia</code>.
 </p>
 <p>
-<tt>(make-reia </tt><em>instance-payload</em><tt>)</tt>&#x2192; <em>reia</em>
+<code>(make-reia </code><em>instance-payload</em><code>)</code>&#x2192; <em>reia</em>
 </p>
 <p>
 Returns a newly allocated instance associated with
@@ -109,30 +109,30 @@ order to effectively associate the instance with more than one value.
 To make the association effectively mutable, use a mutable payload such
 as a box, list or vector.  Instances belong to a type that is disjoint
 from any existing Scheme type, including types created by other calls
-to <tt>make-type</tt>.
+to <code>make-type</code>.
 </p>
 <p>
-<tt>(reia? </tt><em>object</em><tt>)</tt>&#x2192; <em>boolean</em>
+<code>(reia? </code><em>object</em><code>)</code>&#x2192; <em>boolean</em>
 </p>
 <p>
-Returns <tt>#t</tt>  iff <em>object</em> was returned by a call to
-<tt>make-reia</tt> or any constructor created as part of a direct or
-indirect subtype of the <tt>reia</tt> type.
+Returns <code>#t</code>  iff <em>object</em> was returned by a call to
+<code>make-reia</code> or any constructor created as part of a direct or
+indirect subtype of the <code>reia</code> type.
 </p>
 <p>
-<tt>(reia-ref </tt><em>reia</em><tt>)</tt>&#x2192; <em>object</em>
+<code>(reia-ref </code><em>reia</em><code>)</code>&#x2192; <em>object</em>
 </p>
 <p>
 Returns the instance payload of <em>reia</em>.  It is an error if
-<em>reia</em> does not satisfy <tt>reia?</tt>.
+<em>reia</em> does not satisfy <code>reia?</code>.
 </p>
 <p>
-<tt>(make-reia-subtype </tt><em>type-payload</em><tt>)</tt>&#x2192; <em>type-accessor constructor predicate accessor make-subtype</em>
+<code>(make-reia-subtype </code><em>type-payload</em><code>)</code>&#x2192; <em>type-accessor constructor predicate accessor make-subtype</em>
 </p>
 <p>
-Returns five new procedures with the same semantics as <tt>make-type</tt>,
-such that the objects returned by <em>constructor</em> satisfy <tt>reia?</tt>
-and their payload can be accessed using <tt>reia-ref</tt>.
+Returns five new procedures with the same semantics as <code>make-type</code>,
+such that the objects returned by <em>constructor</em> satisfy <code>reia?</code>
+and their payload can be accessed using <code>reia-ref</code>.
 </p>
 
 <h1>Implementation</h1>
@@ -144,7 +144,7 @@ the creation of subtypes O(k).
 
 
 <h1>Copyright</h1>
-Copyright (C) John Cowan, Marc Nieper-Wißkirchen (2016).  All Rights Reserved. 
+Copyright (C) John Cowan, Marc Nieper-Wißkirchen (2016).  All Rights Reserved.
 
 <p>
   Permission is hereby granted, free of charge, to any person
@@ -170,4 +170,4 @@ Copyright (C) John Cowan, Marc Nieper-Wißkirchen (2016).  All Rights Reserved.
   SOFTWARE.</p>
 
   <hr />
-  <address>Editor: <a href="mailto:srfi-editors at srfi dot schemers dot org">Arthur A. Gleckler</a></address></body></html>
+  <address>Editor: <a href="mailto:srfi-editors+at+srfi+dot+schemers+dot+org">Arthur A. Gleckler</a></address></body></html>
